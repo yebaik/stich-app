@@ -1,0 +1,1212 @@
+
+<!DOCTYPE html><html lang="ko" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><title>EuroTrip - Apple Reference Design</title><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#f5f5f7;color:#1d1d1f;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Manrope","Hanken Grotesk",sans-serif;}body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "apple-bg": "#f5f5f7",
+          "apple-card": "#ffffff",
+          "apple-blue": "#0071e3",
+          "apple-blue-hover": "#0077ed",
+          "apple-link": "#0066cc",
+          "apple-text": "#1d1d1f",
+          "apple-subtext": "#6e6e73",
+          "apple-tertiary": "#86868b",
+          "apple-border": "#e5e5ea",
+          "apple-fill": "#f2f2f7",
+          "apple-fill-secondary": "#e8e8ed",
+          "on-primary-fixed-variant": "#00458e",
+          "on-secondary-fixed-variant": "#00458f",
+          "on-background": "#1d1d1f",
+          "surface-container-low": "#f5f5f7",
+          "surface-tint": "#0071e3",
+          "inverse-surface": "#1d1d1f",
+          "outline": "#d2d2d7",
+          "surface-variant": "#e5e5ea",
+          "tertiary": "#0066cc",
+          "on-error": "#ffffff",
+          "outline-variant": "#e5e5ea",
+          "primary-container": "#e8f2ff",
+          "error-container": "#ffdad6",
+          "on-secondary-container": "#ffffff",
+          "on-error-container": "#93000a",
+          "surface-container-highest": "#e5e5ea",
+          "surface": "#f5f5f7",
+          "on-secondary": "#ffffff",
+          "on-tertiary-container": "#003b7a",
+          "primary": "#0071e3",
+          "on-tertiary": "#ffffff",
+          "secondary-container": "#0071e3",
+          "surface-container": "#f5f5f7",
+          "error": "#ff3b30",
+          "on-tertiary-fixed-variant": "#004882",
+          "surface-bright": "#ffffff",
+          "on-tertiary-fixed": "#001c39",
+          "primary-fixed": "#e3efff",
+          "secondary-fixed-dim": "#abc7ff",
+          "tertiary-fixed-dim": "#a3c9ff",
+          "background": "#f5f5f7",
+          "inverse-on-surface": "#f5f5f7",
+          "on-primary": "#ffffff",
+          "on-primary-fixed": "#002b66",
+          "on-surface": "#1d1d1f",
+          "on-surface-variant": "#6e6e73",
+          "tertiary-container": "#e3efff",
+          "tertiary-fixed": "#e3efff",
+          "secondary": "#0071e3",
+          "surface-dim": "#e5e5ea",
+          "surface-container-lowest": "#ffffff",
+          "secondary-fixed": "#e3efff",
+          "on-secondary-fixed": "#002b66",
+          "on-primary-container": "#00408f",
+          "primary-fixed-dim": "#bcdcff",
+          "surface-container-high": "#ebebf0",
+          "inverse-primary": "#bcdcff"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.5rem",
+          "lg": "1.125rem",
+          "xl": "1.25rem",
+          "2xl": "1.25rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-xs": "0.25rem",
+          "margin-mobile": "1rem",
+          "margin": "1rem",
+          "space-lg": "1.5rem",
+          "space-md": "1rem",
+          "gutter-mobile": "1rem",
+          "gutter": "1rem",
+          "space-sm": "0.5rem",
+          "margin-tablet": "2rem",
+          "space-xl": "2rem"
+        },
+        "fontFamily": {
+          "sans": ["-apple-system", "BlinkMacSystemFont", "SF Pro Text", "SF Pro Display", "Manrope", "sans-serif"],
+          "headline-lg-mobile": ["Manrope", "-apple-system", "sans-serif"],
+          "label-sm": ["Hanken Grotesk", "-apple-system", "sans-serif"],
+          "headline-md": ["Manrope", "-apple-system", "sans-serif"],
+          "title-lg": ["Manrope", "-apple-system", "sans-serif"],
+          "label-md": ["Hanken Grotesk", "-apple-system", "sans-serif"],
+          "display-mobile": ["Manrope", "-apple-system", "sans-serif"],
+          "body-sm": ["Hanken Grotesk", "-apple-system", "sans-serif"],
+          "headline-lg": ["Manrope", "-apple-system", "sans-serif"],
+          "display": ["Manrope", "-apple-system", "sans-serif"],
+          "body-lg": ["Hanken Grotesk", "-apple-system", "sans-serif"],
+          "body-md": ["Hanken Grotesk", "-apple-system", "sans-serif"],
+          "label-lg": ["Hanken Grotesk", "-apple-system", "sans-serif"],
+          "headline-sm": ["Manrope", "-apple-system", "sans-serif"]
+        }
+      }
+    }
+  }
+</script></head><body class="bg-apple-bg text-apple-text flex flex-col min-h-screen antialiased"><header class="fixed top-0 w-full z-50 pt-safe bg-apple-card/80 backdrop-blur-xl border-b border-apple-border/60"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-2.5 min-w-0 flex-1"><img alt="MAENG DAHM Logo" class="h-7 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMjTfp2dDYzUodF9do9tbnCZeyv_1Iw5e8xpkn0iyUDgFeXzmgg3FAyDJMiP9f8ZDWpenjbIO3YtLHZjGA8RinMEZoYNfiogsgVgfx-e5qhyTA8CZPhEp8sTlxSMmnMDHU2uzhBcujszmfUv0vxt-yF1YQZoXqP--dbyA2W2Mo7rdzLOichSD7w1I6gUg9QzsCzwwq3iogyawo5go16hqPriZyXzhbglUKcUDXHPi4tR8-jfi0CgE4nQ"><div class="flex flex-col min-w-0"><div class="flex items-center gap-1.5"><span class="text-[17px] font-semibold tracking-tight text-apple-text truncate">Europe Trip</span></div><span class="text-[12px] text-apple-subtext truncate">🇫🇷 파리 &amp; 스페인</span></div></div><div class="flex items-center gap-1 flex-shrink-0"><div class="flex items-center -space-x-2 mr-1"></div><button class="w-9 h-9 rounded-full flex items-center justify-center text-apple-subtext hover:text-apple-blue hover:bg-apple-fill transition active:scale-95"><span class="material-symbols-outlined text-[20px]">share</span></button><button class="w-9 h-9 rounded-full flex items-center justify-center text-apple-subtext hover:text-apple-blue hover:bg-apple-fill transition active:scale-95"><span class="material-symbols-outlined text-[20px]">notifications</span></button><img alt="Profile" class="w-7 h-7 rounded-full object-cover ml-1 border border-apple-border shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_BJGHsyScK0t1qMjh6UeHaghq7lBgEZAqOMxbAtegMDiGf1HsjbOyB-NiyMuMAq6lBrbYadeINFNIyI-s3gVQxwGJzK2SrjrGNk7uUHc4WT4f11Efo8eo8HT8_-PG7iZjDrJtnNNX-8fLoQej59Dk0uFb7TcFjcbfz9yVOoDXI-LBRlspTJw7168lMnngRNpO9W5yQwMdBcVsUgyRTMjaVqtb9Pa-O87rev9__xuk"></div></div></header><main class="flex flex-col relative w-full pt-16 pb-28 bg-apple-bg"><div class="flex flex-col w-full">
+<!-- Apple Style Minimal Toast Notification -->
+<div class="fixed top-20 left-1/2 -translate-x-1/2 z-50 px-4 py-2 bg-apple-text/90 backdrop-blur-md text-apple-card rounded-full shadow-lg text-[13px] font-medium flex items-center gap-1.5 transition-all duration-300 opacity-0 pointer-events-none scale-90" id="toast-message">
+<span class="material-symbols-outlined text-[17px] text-apple-blue">check_circle</span>
+<span class="" id="toast-text">메모가 업데이트되었습니다</span>
+</div>
+<!-- Hero & Trip Overview Briefing Section -->
+<section class="px-margin pt-3 pb-space-md flex flex-col gap-3">
+<!-- Live Status Pill & Quick Badges -->
+
+<!-- Main Title Card with Atmospheric Background Image -->
+<div class="relative w-full rounded-[18px] overflow-hidden border border-apple-border bg-apple-card shadow-sm">
+<div class="bg-cover bg-center w-full h-44 relative" data-alt="Panoramic breathtaking scenic view of European destinations montage, warm golden hour terracotta rooftops of Florence, distant silhouette of Eiffel Tower in sunset glow, and majestic snowcapped Swiss Alps peaks, warm cinematic ambient light, travel brochure editorial aesthetic" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAAcVHukNL5rWPO4IqBjnTM2_helPcRmNYWzhzTWaqPCd2qP_4b3XZ1CP7RMZYnV7GQQqtEgUZjLU2Kx5a6AO7I-I_16KB_YEweT6gQBT_RTVI8Eq8jT4J9MLMqnuLpgf7Df5aMXQEvBdDqdWfW6dPzzehjsKtWYeFf2XygMUH7cmnae2tHKDkTVyilB7Bmi89zxIjUj41O2DA5xwNgxPnR4uvomi_ajbtwC0DrKlt2')">
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
+<div class="absolute top-3 right-3 flex items-center gap-1">
+<span class="bg-apple-card/90 backdrop-blur-md text-apple-blue text-[12px] px-2.5 py-1 rounded-full shadow-sm font-bold flex items-center gap-1 border border-white/20">
+<span class="material-symbols-outlined text-[14px]">flight_takeoff</span>
+            D-18
+          </span>
+</div>
+<div class="absolute bottom-3 left-3.5 right-3.5 flex flex-col">
+<span class="text-white/80 text-[11px] font-semibold uppercase tracking-wider mb-0.5">Europe Grand Tour 2025</span>
+<h1 class="text-[22px] text-white font-bold leading-tight tracking-tight">
+            14일간의 유럽 여행 전체 일정
+          </h1>
+<p class="text-[13px] text-white/90 mt-1 flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[14px]">event</span>
+            9월 26일 (목) ~ 10월 9일 (수) · 총 13박 14일
+          </p>
+</div>
+</div>
+<!-- Country / City Legs Carousel Strip -->
+<div class="p-3.5 flex flex-col gap-2.5 bg-apple-card">
+<div class="flex items-center justify-between">
+<span class="text-[13px] text-apple-subtext flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[16px] text-apple-blue">route</span>
+            주요 거점 3개국 루트 요약
+          </span>
+
+</div>
+<div class="grid grid-cols-3 gap-2">
+<!-- Leg 1: France -->
+<div class="bg-apple-fill border border-apple-border/70 p-2.5 rounded-[14px] flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-[17px]">🇫🇷</span>
+<span class="text-[10px] text-apple-blue font-bold bg-white px-1.5 py-0.5 rounded-full border border-apple-border">4박 5일</span>
+</div>
+<div class="mt-1.5">
+<p class="text-[13px] text-apple-text font-bold">파리</p>
+<p class="text-[11px] text-apple-subtext leading-tight">9.26 ~ 10.2</p>
+</div>
+</div>
+<!-- Leg 2: Switzerland -->
+<div class="bg-apple-fill border border-apple-border/70 p-2.5 rounded-[14px] flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-[17px]">🇨🇭</span>
+<span class="text-[10px] text-apple-blue font-bold bg-white px-1.5 py-0.5 rounded-full border border-apple-border">3박 4일</span>
+</div>
+<div class="mt-1.5">
+<p class="text-[13px] text-apple-text font-bold">인터라켄</p>
+<p class="text-[11px] text-apple-subtext leading-tight">10.1 ~ 10.4</p>
+</div>
+</div>
+<!-- Leg 3: Italy -->
+<div class="bg-apple-fill border border-apple-border/70 p-2.5 rounded-[14px] flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-[17px]">🇮🇹</span>
+<span class="text-[10px] text-apple-blue font-bold bg-white px-1.5 py-0.5 rounded-full border border-apple-border">4박 5일</span>
+</div>
+<div class="mt-1.5">
+<p class="text-[13px] text-apple-text font-bold">피렌체·로마</p>
+<p class="text-[11px] text-apple-subtext leading-tight">10.5 ~ 10.9</p>
+</div>
+</div>
+</div>
+<!-- Collaborative Member Stack & Quick Action Buttons -->
+<div class="pt-1 flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-1.5">
+<div class="flex items-center -space-x-2">
+<div class="w-7 h-7 rounded-full bg-apple-fill-secondary text-apple-text flex items-center justify-center text-[11px] font-bold border border-apple-card shadow-sm" title="나 (작성자)">민</div>
+<div class="w-7 h-7 rounded-full bg-apple-fill-secondary text-apple-text flex items-center justify-center text-[11px] font-bold border border-apple-card shadow-sm" title="준호">준</div>
+<div class="w-7 h-7 rounded-full bg-apple-fill-secondary text-apple-text flex items-center justify-center text-[11px] font-bold border border-apple-card shadow-sm" title="수현">수</div>
+</div>
+<span class="text-[12px] text-apple-subtext ml-1">친구 3명과 공유 중</span>
+</div>
+<div class="flex items-center gap-1.5">
+<button class="h-8 px-3 rounded-full bg-apple-fill text-apple-text text-[12px] font-medium border border-apple-border flex items-center gap-1 active:scale-95 transition" onclick="toggleGlobalMapModal()">
+<span class="material-symbols-outlined text-[15px] text-apple-blue">map</span>
+              전체 경로 지도
+            </button>
+<button class="h-8 px-3 rounded-full bg-apple-fill text-apple-text text-[12px] font-medium border border-apple-border flex items-center gap-1 active:scale-95 transition" onclick="triggerShareSheet()">
+<span class="material-symbols-outlined text-[15px] text-apple-blue">share</span>
+              공유
+            </button>
+</div>
+</div>
+</div><div class="p-3.5 border-t border-apple-border/70 bg-apple-fill/50 flex flex-col gap-3 rounded-b-[18px]"><div class="flex items-center justify-between"><span class="text-[13px] text-apple-subtext flex items-center gap-1 font-semibold"><span class="material-symbols-outlined text-[16px] text-apple-blue">flight</span>핵심 항공편 &amp; 대표 숙소</span><span class="text-[11px] px-2 py-0.5 rounded-full bg-apple-blue/10 text-apple-blue font-bold">확정 예약</span></div><div class="flex flex-col gap-2"><div class="bg-apple-card border border-apple-border/80 rounded-[14px] p-3 shadow-sm flex flex-col gap-2.5"><div class="flex items-center justify-between border-b border-apple-border/60 pb-2"><div class="flex items-center gap-1.5"><span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-apple-fill text-apple-blue border border-apple-border">출국편</span><span class="text-[12px] font-semibold text-apple-text">대한항공 KE901</span></div><span class="text-[11px] text-apple-subtext font-medium">9.26 (목) 직항</span></div><div class="flex items-center justify-between px-1"><div class="flex flex-col"><span class="text-[18px] font-bold text-apple-text tracking-tight">11:30</span><span class="text-[11px] text-apple-subtext font-semibold">ICN · 인천 T2</span></div><div class="flex flex-col items-center flex-1 px-3"><div class="flex items-center gap-1 text-[10px] text-apple-subtext font-medium"><span class="material-symbols-outlined text-[12px] text-apple-blue">schedule</span>13시간 50분</div><div class="w-full flex items-center relative my-1"><div class="h-[1.5px] bg-apple-border w-full"></div><span class="material-symbols-outlined text-[14px] text-apple-blue absolute left-1/2 -translate-x-1/2 bg-apple-card px-0.5">flight</span></div><span class="text-[10px] text-apple-blue font-semibold">보잉 777-300ER</span></div><div class="flex flex-col items-end"><span class="text-[18px] font-bold text-apple-text tracking-tight">18:20</span><span class="text-[11px] text-apple-subtext font-semibold">CDG · 파리 2E</span></div></div></div><div class="flex flex-col gap-2"><div class="flex items-center justify-between pt-0.5 px-0.5"><span class="text-[11px] font-semibold text-apple-subtext flex items-center gap-1"><span class="material-symbols-outlined text-[13px] text-apple-blue">sync_alt</span>개별 귀국 일정 (2개 팀 분리)</span><span class="text-[10px] text-apple-blue font-medium bg-apple-fill px-2 py-0.5 rounded-full border border-apple-border">총 2개 편</span></div><div class="bg-apple-card border border-apple-border/80 rounded-[14px] p-3 shadow-sm flex flex-col gap-2.5"><div class="flex items-center justify-between border-b border-apple-border/60 pb-2"><div class="flex items-center gap-1.5"><span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-apple-blue text-white shadow-sm">유담이네</span><span class="text-[12px] font-semibold text-apple-text">대한항공 KE932</span><span class="text-[10px] px-1.5 py-0.5 rounded bg-apple-fill text-apple-subtext font-medium border border-apple-border">민지 · 준호</span></div><span class="text-[11px] text-apple-subtext font-medium">10.9 (수) 직항</span></div><div class="flex items-center justify-between px-1"><div class="flex flex-col"><span class="text-[18px] font-bold text-apple-text tracking-tight">21:00</span><span class="text-[11px] text-apple-subtext font-semibold">FCO · 로마 T3</span></div><div class="flex flex-col items-center flex-1 px-3"><div class="flex items-center gap-1 text-[10px] text-apple-subtext font-medium"><span class="material-symbols-outlined text-[12px] text-apple-blue">schedule</span>11시간 40분</div><div class="w-full flex items-center relative my-1"><div class="h-[1.5px] bg-apple-border w-full"></div><span class="material-symbols-outlined text-[14px] text-apple-blue absolute left-1/2 -translate-x-1/2 bg-apple-card px-0.5">flight</span></div><span class="text-[10px] text-error font-semibold">+1일 15:40 도착</span></div><div class="flex flex-col items-end"><span class="text-[18px] font-bold text-apple-text tracking-tight">15:40</span><span class="text-[11px] text-apple-subtext font-semibold">ICN · 인천 T2</span></div></div></div><div class="bg-apple-card border border-apple-border/80 rounded-[14px] p-3 shadow-sm flex flex-col gap-2.5"><div class="flex items-center justify-between border-b border-apple-border/60 pb-2"><div class="flex items-center gap-1.5"><span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-apple-fill-secondary text-apple-text border border-apple-border">밍브로네</span><span class="text-[12px] font-semibold text-apple-text">아시아나 OZ562</span><span class="text-[10px] px-1.5 py-0.5 rounded bg-apple-fill text-apple-subtext font-medium border border-apple-border">수현</span></div><span class="text-[11px] text-apple-subtext font-medium">10.9 (수) 직항</span></div><div class="flex items-center justify-between px-1"><div class="flex flex-col"><span class="text-[18px] font-bold text-apple-text tracking-tight">19:40</span><span class="text-[11px] text-apple-subtext font-semibold">FCO · 로마 T3</span></div><div class="flex flex-col items-center flex-1 px-3"><div class="flex items-center gap-1 text-[10px] text-apple-subtext font-medium"><span class="material-symbols-outlined text-[12px] text-apple-blue">schedule</span>11시간 35분</div><div class="w-full flex items-center relative my-1"><div class="h-[1.5px] bg-apple-border w-full"></div><span class="material-symbols-outlined text-[14px] text-apple-blue absolute left-1/2 -translate-x-1/2 bg-apple-card px-0.5">flight</span></div><span class="text-[10px] text-error font-semibold">+1일 14:15 도착</span></div><div class="flex flex-col items-end"><span class="text-[18px] font-bold text-apple-text tracking-tight">14:15</span><span class="text-[11px] text-apple-subtext font-semibold">ICN · 인천 T1</span></div></div></div></div></div><div class="bg-apple-card border border-apple-border/80 rounded-[14px] p-3 shadow-sm flex flex-col gap-2.5"><div class="flex items-center justify-between"><div class="flex items-center gap-1.5"><span class="text-[15px]">🇫🇷</span><span class="text-[13px] font-bold text-apple-text">파리 마레지구 메인 숙소</span><span class="text-[10px] bg-apple-fill text-apple-subtext px-1.5 py-0.5 rounded font-semibold border border-apple-border">9.26 ~ 9.30</span></div><span class="text-[11px] text-apple-blue font-bold flex items-center gap-0.5"><span class="material-symbols-outlined text-[13px]">key</span>#4829*</span></div><div class="flex items-center justify-between gap-2 bg-apple-fill/50 p-2 rounded-[10px] border border-apple-border/60"><div class="flex flex-col min-w-0"><span class="text-[12px] font-semibold text-apple-text truncate">14 Rue de Turenne, 75004 Paris</span><span class="text-[10px] text-apple-subtext">생폴역(Saint-Paul) 도보 3분</span></div><div class="flex items-center gap-1.5 flex-shrink-0"><button class="px-2 py-1 bg-apple-card border border-apple-border rounded-full text-[11px] font-medium text-apple-text hover:bg-apple-fill transition flex items-center gap-0.5 active:scale-95" onclick="navigator.clipboard ? navigator.clipboard.writeText('14 Rue de Turenne, 75004 Paris') : null; showToast('숙소 주소가 복사되었습니다');"><span class="material-symbols-outlined text-[12px] text-apple-blue">content_copy</span><span class="">주소 복사</span></button><button class="px-2 py-1 bg-apple-card border border-apple-border rounded-full text-[11px] font-medium text-apple-blue hover:bg-apple-fill transition flex items-center gap-0.5 active:scale-95" onclick="showToast('지도 앱으로 연결합니다');"><span class="material-symbols-outlined text-[12px]">near_me</span><span class="">지도보기</span></button></div></div></div></div>
+</div>
+</section>
+<!-- Interactive Map Preview Callout (Collapsible / Modal Sheet preview) -->
+<div class="px-margin mb-3 hidden" id="map-modal-card">
+<div class="bg-apple-card border border-apple-border rounded-[18px] p-3.5 shadow-sm flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-apple-blue text-[20px]">explore</span>
+<span class="text-[16px] font-bold text-apple-text">14일 광역 이동 경로</span>
+</div>
+<button class="w-7 h-7 rounded-full bg-apple-fill flex items-center justify-center text-apple-subtext hover:text-apple-text" onclick="toggleGlobalMapModal()">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<div class="w-full h-44 bg-cover bg-center rounded-[14px] relative border border-apple-border overflow-hidden" data-location="Paris, Interlaken, Rome, Europe" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD5UuoXv1BIjUgdEnVv1-h82TkLPyjf6OAyHHpwxUgGCq9Gwoq-azJpuVW0CyRh2P6sEmUrLxJ4OWJVMRWIW_2684L_fgDe98vBFjCBQABlhOIPUOri7xb9OPs6XYxVXk7c3Ra0RsiiLjiP32auNSL1Gd8eCYna4wnpy8orkr-pC4kY4H4n-TA18JLdQWC6__izP0B0_tZXedz7ZwccnX5BgKTZ772LW2Bb42pVyFUQ')">
+<div class="absolute bottom-2 left-2 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[11px] font-semibold text-apple-text border border-apple-border shadow-sm">
+          📍 파리 CDG ➔ 인터라켄 ➔ 피렌체 ➔ 로마 FCO
+        </div>
+</div>
+<p class="text-[12px] text-apple-subtext leading-relaxed">
+        유레일 패스 및 TGV 고속열차 2회, 스위스 파노라마 열차 1회 포함 총 3개 구간 이동
+      </p>
+</div>
+</div>
+<!-- Filter & Fast Jump Tabs (Apple Segmented Pill Style) -->
+<section class="px-margin mb-3 sticky top-16 z-20 bg-apple-bg/85 backdrop-blur-xl py-2">
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-0.5">
+<button class="filter-tab h-9 px-4 rounded-full text-[13px] font-semibold transition-all bg-apple-blue text-white shadow-sm whitespace-nowrap" id="tab-all" onclick="filterDays('all')">
+        전체 일정 (14일)
+      </button>
+<button class="filter-tab h-9 px-4 rounded-full text-[13px] font-medium transition-all bg-apple-card text-apple-text border border-apple-border hover:bg-apple-fill whitespace-nowrap" id="tab-paris" onclick="filterDays('paris')">
+        🇫🇷 파리 (Day 1~5)
+      </button>
+<button class="filter-tab h-9 px-4 rounded-full text-[13px] font-medium transition-all bg-apple-card text-apple-text border border-apple-border hover:bg-apple-fill whitespace-nowrap" id="tab-swiss" onclick="filterDays('swiss')">
+        🇨🇭 스위스 (Day 6~9)
+      </button>
+<button class="filter-tab h-9 px-4 rounded-full text-[13px] font-medium transition-all bg-apple-card text-apple-text border border-apple-border hover:bg-apple-fill whitespace-nowrap" id="tab-italy" onclick="filterDays('italy')">
+        🇮🇹 이탈리아 (Day 10~14)
+      </button>
+</div>
+</section>
+<!-- 14-Day Full List Cards (Timeline / Master Itinerary) -->
+<section class="px-margin flex flex-col gap-3 pb-space-xl">
+<!-- DAY 1 -->
+<article class="day-card flex flex-col bg-apple-card rounded-[18px] p-4 border border-apple-border shadow-sm transition-all" data-leg="paris">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-apple-fill text-apple-blue flex items-center justify-center text-[14px] font-bold border border-apple-border">1</span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-[17px] text-apple-text font-bold">9.26 목</span>
+<span class="px-2 py-0.5 rounded-full bg-apple-fill text-apple-blue text-[11px] font-semibold border border-apple-border">파리 도착일</span>
+</div>
+<span class="text-[12px] text-apple-subtext">인천 ➔ 파리 샤를드골(CDG) &amp; 에펠탑 야경</span>
+</div>
+</div>
+<button class="flex items-center gap-0.5 text-apple-blue text-[12px] font-semibold bg-apple-fill hover:bg-apple-fill-secondary border border-apple-border px-3 py-1 rounded-full transition active:scale-95 flex-shrink-0" onclick="openDayDetail(1)">
+<span class="">타임라인</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+<div class="mt-3 flex flex-col gap-2">
+<div class="flex items-center gap-2 text-apple-text text-[14px]">
+<span class="material-symbols-outlined text-[18px] text-apple-blue flex-shrink-0">flight_land</span>
+<span class="font-medium">파리 샤를드골 공항 도착 · 마레지구 숙소 체크인 · 에펠탑 야경 산책</span>
+</div>
+
+</div>
+<!-- Spot Memo Box with Inline Edit -->
+<div class="mt-3 bg-apple-fill rounded-[14px] p-3 border border-apple-border flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="text-[12px] text-apple-subtext flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[15px] text-apple-blue">sticky_note_2</span>
+            스팟 동행 메모
+          </span>
+<button class="text-apple-blue text-[12px] font-semibold hover:underline flex items-center gap-0.5" onclick="toggleMemoEdit(1)">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span class="" id="memo-btn-text-1">수정</span>
+</button>
+</div>
+<p class="text-[13px] text-apple-text leading-relaxed" id="memo-display-1">
+          공항에서 RER B선 타고 마레지구 역 이동. 숙소 1층 출입문 비번 #4829! 도착 후 샤틀레역 근처 환전소 체크.
+        </p>
+<div class="hidden flex-col gap-2 mt-1" id="memo-editor-1">
+<textarea class="w-full p-2.5 bg-white text-apple-text text-[13px] rounded-[10px] border border-apple-border focus:outline-none focus:ring-2 focus:ring-apple-blue/30 resize-none h-18" id="memo-input-1">공항에서 RER B선 타고 마레지구 역 이동. 숙소 1층 출입문 비번 #4829! 도착 후 샤틀레역 근처 환전소 체크.</textarea>
+<div class="flex justify-end gap-2">
+<button class="px-3 py-1 rounded-full bg-apple-card border border-apple-border text-[12px] text-apple-subtext font-medium" onclick="toggleMemoEdit(1)">취소</button>
+<button class="px-3.5 py-1 rounded-full bg-apple-blue text-white text-[12px] font-semibold" onclick="saveMemo(1)">저장</button>
+</div>
+</div>
+</div>
+</article>
+<!-- DAY 2 -->
+<article class="day-card flex flex-col bg-apple-card rounded-[18px] p-4 border border-apple-border shadow-sm transition-all" data-leg="paris">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-apple-fill text-apple-blue flex items-center justify-center text-[14px] font-bold border border-apple-border">2</span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-[17px] text-apple-text font-bold">9.27 금</span>
+<span class="px-2 py-0.5 rounded-full bg-apple-fill text-apple-blue text-[11px] font-semibold border border-apple-border">파리 도심 탐방</span>
+</div>
+<span class="text-[12px] text-apple-subtext">루브르 ➔ 튈르리 정원 ➔ 르 쁘띠 마르쉐</span>
+</div>
+</div>
+<button class="flex items-center gap-0.5 text-apple-blue text-[12px] font-semibold bg-apple-fill hover:bg-apple-fill-secondary border border-apple-border px-3 py-1 rounded-full transition active:scale-95 flex-shrink-0" onclick="openDayDetail(2)">
+<span class="">타임라인</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+<div class="mt-3 flex flex-col gap-2">
+<div class="flex items-center gap-2 text-apple-text text-[14px]">
+<span class="material-symbols-outlined text-[18px] text-apple-blue flex-shrink-0">museum</span>
+<span class="font-medium">루브르 박물관 · 튈르리 정원 산책 · 르 쁘띠 마르쉐 오리고기 식사</span>
+</div>
+
+</div>
+<div class="mt-3 bg-apple-fill rounded-[14px] p-3 border border-apple-border flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="text-[12px] text-apple-subtext flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[15px] text-apple-blue">sticky_note_2</span>
+            스팟 동행 메모
+          </span>
+<button class="text-apple-blue text-[12px] font-semibold hover:underline flex items-center gap-0.5" onclick="toggleMemoEdit(2)">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span class="" id="memo-btn-text-2">수정</span>
+</button>
+</div>
+<p class="text-[13px] text-apple-text leading-relaxed" id="memo-display-2">
+          뮤지엄패스 10:00 타임슬롯 사전예약 완료. 피라미드 지하 입구 대신 리슐리외 통로로 진입하기.
+        </p>
+<div class="hidden flex-col gap-2 mt-1" id="memo-editor-2">
+<textarea class="w-full p-2.5 bg-white text-apple-text text-[13px] rounded-[10px] border border-apple-border focus:outline-none focus:ring-2 focus:ring-apple-blue/30 resize-none h-18" id="memo-input-2">뮤지엄패스 10:00 타임슬롯 사전예약 완료. 피라미드 지하 입구 대신 리슐리외 통로로 진입하기.</textarea>
+<div class="flex justify-end gap-2">
+<button class="px-3 py-1 rounded-full bg-apple-card border border-apple-border text-[12px] text-apple-subtext font-medium" onclick="toggleMemoEdit(2)">취소</button>
+<button class="px-3.5 py-1 rounded-full bg-apple-blue text-white text-[12px] font-semibold" onclick="saveMemo(2)">저장</button>
+</div>
+</div>
+</div>
+</article>
+<!-- DAY 3 -->
+<article class="day-card flex flex-col bg-apple-card rounded-[18px] p-4 border border-apple-border shadow-sm transition-all" data-leg="paris">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-apple-fill text-apple-blue flex items-center justify-center text-[14px] font-bold border border-apple-border">3</span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-[17px] text-apple-text font-bold">9.28 토</span>
+<span class="px-2 py-0.5 rounded-full bg-apple-fill text-apple-blue text-[11px] font-semibold border border-apple-border">예술과 낭만</span>
+</div>
+<span class="text-[12px] text-apple-subtext">오르세 미술관 &amp; 몽마르트르 사랑해 벽</span>
+</div>
+</div>
+<button class="flex items-center gap-0.5 text-apple-blue text-[12px] font-semibold bg-apple-fill hover:bg-apple-fill-secondary border border-apple-border px-3 py-1 rounded-full transition active:scale-95 flex-shrink-0" onclick="openDayDetail(3)">
+<span class="">타임라인</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+<div class="mt-3 flex flex-col gap-2">
+<div class="flex items-center gap-2 text-apple-text text-[14px]">
+<span class="material-symbols-outlined text-[18px] text-apple-blue flex-shrink-0">palette</span>
+<span class="font-medium">오르세 미술관 · 사랑해 벽 · 사크레쾨르 대성당 일몰 피크닉</span>
+</div>
+</div>
+<div class="mt-3 bg-apple-fill rounded-[14px] p-3 border border-apple-border flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="text-[12px] text-apple-subtext flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[15px] text-apple-blue">sticky_note_2</span>
+            스팟 동행 메모
+          </span>
+<button class="text-apple-blue text-[12px] font-semibold hover:underline flex items-center gap-0.5" onclick="toggleMemoEdit(3)">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span class="" id="memo-btn-text-3">수정</span>
+</button>
+</div>
+<p class="text-[13px] text-apple-text leading-relaxed" id="memo-display-3">
+          몽마르트르 계단 팔찌 사기단 및 소매치기 각별히 주의! 언덕 오르기 전 바게트랑 와인 사들고 일몰 감상하기.
+        </p>
+<div class="hidden flex-col gap-2 mt-1" id="memo-editor-3">
+<textarea class="w-full p-2.5 bg-white text-apple-text text-[13px] rounded-[10px] border border-apple-border focus:outline-none focus:ring-2 focus:ring-apple-blue/30 resize-none h-18" id="memo-input-3">몽마르트르 계단 팔찌 사기단 및 소매치기 각별히 주의! 언덕 오르기 전 바게트랑 와인 사들고 일몰 감상하기.</textarea>
+<div class="flex justify-end gap-2">
+<button class="px-3 py-1 rounded-full bg-apple-card border border-apple-border text-[12px] text-apple-subtext font-medium" onclick="toggleMemoEdit(3)">취소</button>
+<button class="px-3.5 py-1 rounded-full bg-apple-blue text-white text-[12px] font-semibold" onclick="saveMemo(3)">저장</button>
+</div>
+</div>
+</div>
+</article>
+<!-- DAY 4 -->
+<article class="day-card flex flex-col bg-apple-card rounded-[18px] p-4 border border-apple-border shadow-sm transition-all" data-leg="paris">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-apple-fill text-apple-blue flex items-center justify-center text-[14px] font-bold border border-apple-border">4</span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-[17px] text-apple-text font-bold">9.29 일</span>
+<span class="px-2 py-0.5 rounded-full bg-apple-fill text-apple-blue text-[11px] font-semibold border border-apple-border">근교 &amp; 쇼핑</span>
+</div>
+<span class="text-[12px] text-apple-subtext">베르사유 궁전 정원 &amp; 마레 빈티지 투어</span>
+</div>
+</div>
+<button class="flex items-center gap-0.5 text-apple-blue text-[12px] font-semibold bg-apple-fill hover:bg-apple-fill-secondary border border-apple-border px-3 py-1 rounded-full transition active:scale-95 flex-shrink-0" onclick="openDayDetail(4)">
+<span class="">타임라인</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+<div class="mt-3 flex flex-col gap-2">
+<div class="flex items-center gap-2 text-apple-text text-[14px]">
+<span class="material-symbols-outlined text-[18px] text-apple-blue flex-shrink-0">castle</span>
+<span class="font-medium">베르사유 거울의 방 · 그랑 트리아농 정원 자전거 · 마레 빈티지 편집숍</span>
+</div>
+</div>
+<div class="mt-3 bg-apple-fill rounded-[14px] p-3 border border-apple-border flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="text-[12px] text-apple-subtext flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[15px] text-apple-blue">sticky_note_2</span>
+            스팟 동행 메모
+          </span>
+<button class="text-apple-blue text-[12px] font-semibold hover:underline flex items-center gap-0.5" onclick="toggleMemoEdit(4)">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span class="" id="memo-btn-text-4">수정</span>
+</button>
+</div>
+<p class="text-[13px] text-apple-text leading-relaxed" id="memo-display-4">
+          준호가 대운하 자전거 대여권 사전결제 완료함. 마레 복귀 후 메르시(Merci) 에코백 선물 사기.
+        </p>
+<div class="hidden flex-col gap-2 mt-1" id="memo-editor-4">
+<textarea class="w-full p-2.5 bg-white text-apple-text text-[13px] rounded-[10px] border border-apple-border focus:outline-none focus:ring-2 focus:ring-apple-blue/30 resize-none h-18" id="memo-input-4">준호가 대운하 자전거 대여권 사전결제 완료함. 마레 복귀 후 메르시(Merci) 에코백 선물 사기.</textarea>
+<div class="flex justify-end gap-2">
+<button class="px-3 py-1 rounded-full bg-apple-card border border-apple-border text-[12px] text-apple-subtext font-medium" onclick="toggleMemoEdit(4)">취소</button>
+<button class="px-3.5 py-1 rounded-full bg-apple-blue text-white text-[12px] font-semibold" onclick="saveMemo(4)">저장</button>
+</div>
+</div>
+</div>
+</article>
+<!-- DAY 5 -->
+<article class="day-card flex flex-col bg-apple-card rounded-[18px] p-4 border border-apple-border shadow-sm transition-all" data-leg="paris">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-apple-fill text-apple-blue flex items-center justify-center text-[14px] font-bold border border-apple-border">5</span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-[17px] text-apple-text font-bold">9.30 월</span>
+<span class="px-2 py-0.5 rounded-full bg-apple-fill text-apple-blue text-[11px] font-semibold border border-apple-border">파리 작별의 날</span>
+</div>
+<span class="text-[12px] text-apple-subtext">생제르맹 카페 드 플로르 &amp; 센강 바토무슈</span>
+</div>
+</div>
+<button class="flex items-center gap-0.5 text-apple-blue text-[12px] font-semibold bg-apple-fill hover:bg-apple-fill-secondary border border-apple-border px-3 py-1 rounded-full transition active:scale-95 flex-shrink-0" onclick="openDayDetail(5)">
+<span class="">타임라인</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+<div class="mt-3 flex flex-col gap-2">
+<div class="flex items-center gap-2 text-apple-text text-[14px]">
+<span class="material-symbols-outlined text-[18px] text-apple-blue flex-shrink-0">directions_boat</span>
+<span class="font-medium">카페 드 플로르 테라스 크루아상 · 퐁네프 다리 · 센강 일몰 바토무슈 유람선</span>
+</div>
+</div>
+<div class="mt-3 bg-apple-fill rounded-[14px] p-3 border border-apple-border flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="text-[12px] text-apple-subtext flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[15px] text-apple-blue">sticky_note_2</span>
+            스팟 동행 메모
+          </span>
+<button class="text-apple-blue text-[12px] font-semibold hover:underline flex items-center gap-0.5" onclick="toggleMemoEdit(5)">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span class="" id="memo-btn-text-5">수정</span>
+</button>
+</div>
+<p class="text-[13px] text-apple-text leading-relaxed" id="memo-display-5">
+          수현이 바토무슈 모바일 바코드 티켓 다운로드 확인. 내일 아침 리옹역 TGV 탑승 대비 짐 미리 싸두기.
+        </p>
+<div class="hidden flex-col gap-2 mt-1" id="memo-editor-5">
+<textarea class="w-full p-2.5 bg-white text-apple-text text-[13px] rounded-[10px] border border-apple-border focus:outline-none focus:ring-2 focus:ring-apple-blue/30 resize-none h-18" id="memo-input-5">수현이 바토무슈 모바일 바코드 티켓 다운로드 확인. 내일 아침 리옹역 TGV 탑승 대비 짐 미리 싸두기.</textarea>
+<div class="flex justify-end gap-2">
+<button class="px-3 py-1 rounded-full bg-apple-card border border-apple-border text-[12px] text-apple-subtext font-medium" onclick="toggleMemoEdit(5)">취소</button>
+<button class="px-3.5 py-1 rounded-full bg-apple-blue text-white text-[12px] font-semibold" onclick="saveMemo(5)">저장</button>
+</div>
+</div>
+</div>
+</article>
+<!-- DAY 6 -->
+<article class="day-card flex flex-col bg-apple-card rounded-[18px] p-4 border border-apple-border shadow-sm transition-all" data-leg="swiss">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-apple-fill text-apple-blue flex items-center justify-center text-[14px] font-bold border border-apple-border">6</span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-[17px] text-apple-text font-bold">10.1 화</span>
+<span class="px-2 py-0.5 rounded-full bg-apple-fill text-apple-blue text-[11px] font-semibold border border-apple-border">스위스 입성</span>
+</div>
+<span class="text-[12px] text-apple-subtext">TGV 파리 ➔ 바젤 환승 ➔ 인터라켄 동역</span>
+</div>
+</div>
+<button class="flex items-center gap-0.5 text-apple-blue text-[12px] font-semibold bg-apple-fill hover:bg-apple-fill-secondary border border-apple-border px-3 py-1 rounded-full transition active:scale-95 flex-shrink-0" onclick="openDayDetail(6)">
+<span class="">타임라인</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+<div class="mt-3 flex flex-col gap-2">
+<div class="flex items-center gap-2 text-apple-text text-[14px]">
+<span class="material-symbols-outlined text-[18px] text-apple-blue flex-shrink-0">train</span>
+<span class="font-semibold">고속열차 이동 · 스위스패스 개시 · 그린델발트 아이거뷰 샬레 체크인</span>
+</div>
+</div>
+<div class="mt-3 bg-apple-fill rounded-[14px] p-3 border border-apple-border flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="text-[12px] text-apple-subtext flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[15px] text-apple-blue">sticky_note_2</span>
+            스팟 동행 메모
+          </span>
+<button class="text-apple-blue text-[12px] font-semibold hover:underline flex items-center gap-0.5" onclick="toggleMemoEdit(6)">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span class="" id="memo-btn-text-6">수정</span>
+</button>
+</div>
+<p class="text-[13px] text-apple-text leading-relaxed" id="memo-display-6">
+          바젤 SBB역 환승시간 14분이니 캐리어 챙겨 빠르게 4번 플랫폼으로 이동! Coop 마트에서 퐁듀 치즈 세트 사기.
+        </p>
+<div class="hidden flex-col gap-2 mt-1" id="memo-editor-6">
+<textarea class="w-full p-2.5 bg-white text-apple-text text-[13px] rounded-[10px] border border-apple-border focus:outline-none focus:ring-2 focus:ring-apple-blue/30 resize-none h-18" id="memo-input-6">바젤 SBB역 환승시간 14분이니 캐리어 챙겨 빠르게 4번 플랫폼으로 이동! Coop 마트에서 퐁듀 치즈 세트 사기.</textarea>
+<div class="flex justify-end gap-2">
+<button class="px-3 py-1 rounded-full bg-apple-card border border-apple-border text-[12px] text-apple-subtext font-medium" onclick="toggleMemoEdit(6)">취소</button>
+<button class="px-3.5 py-1 rounded-full bg-apple-blue text-white text-[12px] font-semibold" onclick="saveMemo(6)">저장</button>
+</div>
+</div>
+</div>
+</article>
+<!-- DAY 7 -->
+<article class="day-card flex flex-col bg-apple-card rounded-[18px] p-4 border border-apple-border shadow-sm transition-all" data-leg="swiss">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-apple-fill text-apple-blue flex items-center justify-center text-[14px] font-bold border border-apple-border">7</span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-[17px] text-apple-text font-bold">10.2 수</span>
+<span class="px-2 py-0.5 rounded-full bg-apple-fill text-apple-blue text-[11px] font-semibold border border-apple-border">알프스의 정점</span>
+</div>
+<span class="text-[12px] text-apple-subtext">융프라우요흐 등반 &amp; 클라이네 샤이덱 트래킹</span>
+</div>
+</div>
+<button class="flex items-center gap-0.5 text-apple-blue text-[12px] font-semibold bg-apple-fill hover:bg-apple-fill-secondary border border-apple-border px-3 py-1 rounded-full transition active:scale-95 flex-shrink-0" onclick="openDayDetail(7)">
+<span class="">타임라인</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+<div class="mt-3 flex flex-col gap-2">
+<div class="flex items-center gap-2 text-apple-text text-[14px]">
+<span class="material-symbols-outlined text-[18px] text-apple-blue flex-shrink-0">landscape</span>
+<span class="font-semibold">아이거 익스프레스 곤돌라 · Top of Europe 만년설 신라면 · 37번 트래킹 코스</span>
+</div>
+</div>
+<div class="mt-3 bg-apple-fill rounded-[14px] p-3 border border-apple-border flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="text-[12px] text-apple-subtext flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[15px] text-apple-blue">sticky_note_2</span>
+            스팟 동행 메모
+          </span>
+<button class="text-apple-blue text-[12px] font-semibold hover:underline flex items-center gap-0.5" onclick="toggleMemoEdit(7)">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span class="" id="memo-btn-text-7">수정</span>
+</button>
+</div>
+<p class="text-[13px] text-apple-text leading-relaxed" id="memo-display-7">
+          아침 7:30 출발 전 고산병 약 필수 복용! 정상 설원 자외선 매우 강하니 선글라스 및 핫팩 각자 가방에 챙기기.
+        </p>
+<div class="hidden flex-col gap-2 mt-1" id="memo-editor-7">
+<textarea class="w-full p-2.5 bg-white text-apple-text text-[13px] rounded-[10px] border border-apple-border focus:outline-none focus:ring-2 focus:ring-apple-blue/30 resize-none h-18" id="memo-input-7">아침 7:30 출발 전 고산병 약 필수 복용! 정상 설원 자외선 매우 강하니 선글라스 및 핫팩 각자 가방에 챙기기.</textarea>
+<div class="flex justify-end gap-2">
+<button class="px-3 py-1 rounded-full bg-apple-card border border-apple-border text-[12px] text-apple-subtext font-medium" onclick="toggleMemoEdit(7)">취소</button>
+<button class="px-3.5 py-1 rounded-full bg-apple-blue text-white text-[12px] font-semibold" onclick="saveMemo(7)">저장</button>
+</div>
+</div>
+</div>
+</article>
+<!-- DAY 8 -->
+<article class="day-card flex flex-col bg-apple-card rounded-[18px] p-4 border border-apple-border shadow-sm transition-all" data-leg="swiss">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-apple-fill text-apple-blue flex items-center justify-center text-[14px] font-bold border border-apple-border">8</span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-[17px] text-apple-text font-bold">10.3 목</span>
+<span class="px-2 py-0.5 rounded-full bg-apple-fill text-apple-blue text-[11px] font-semibold border border-apple-border">액티비티 데이</span>
+</div>
+<span class="text-[12px] text-apple-subtext">피르스트 클리프워크 &amp; 바흐알프제 호수</span>
+</div>
+</div>
+<button class="flex items-center gap-0.5 text-apple-blue text-[12px] font-semibold bg-apple-fill hover:bg-apple-fill-secondary border border-apple-border px-3 py-1 rounded-full transition active:scale-95 flex-shrink-0" onclick="openDayDetail(8)">
+<span class="">타임라인</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+<div class="mt-3 flex flex-col gap-2">
+<div class="flex items-center gap-2 text-apple-text text-[14px]">
+<span class="material-symbols-outlined text-[18px] text-apple-blue flex-shrink-0">sports_score</span>
+<span class="font-semibold">피르스트 플라이어 &amp; 글라이더 · 트로티바이크 · 바흐알프제 하이킹</span>
+</div>
+</div>
+<div class="mt-3 bg-apple-fill rounded-[14px] p-3 border border-apple-border flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="text-[12px] text-apple-subtext flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[15px] text-apple-blue">sticky_note_2</span>
+            스팟 동행 메모
+          </span>
+<button class="text-apple-blue text-[12px] font-semibold hover:underline flex items-center gap-0.5" onclick="toggleMemoEdit(8)">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span class="" id="memo-btn-text-8">수정</span>
+</button>
+</div>
+<p class="text-[13px] text-apple-text leading-relaxed" id="memo-display-8">
+          기상 앱 확인 후 바람 잔잔하면 준호 패러글라이딩 현장 접수. 트로티바이크 내리막 안전 헬멧 필수!
+        </p>
+<div class="hidden flex-col gap-2 mt-1" id="memo-editor-8">
+<textarea class="w-full p-2.5 bg-white text-apple-text text-[13px] rounded-[10px] border border-apple-border focus:outline-none focus:ring-2 focus:ring-apple-blue/30 resize-none h-18" id="memo-input-8">기상 앱 확인 후 바람 잔잔하면 준호 패러글라이딩 현장 접수. 트로티바이크 내리막 안전 헬멧 필수!</textarea>
+<div class="flex justify-end gap-2">
+<button class="px-3 py-1 rounded-full bg-apple-card border border-apple-border text-[12px] text-apple-subtext font-medium" onclick="toggleMemoEdit(8)">취소</button>
+<button class="px-3.5 py-1 rounded-full bg-apple-blue text-white text-[12px] font-semibold" onclick="saveMemo(8)">저장</button>
+</div>
+</div>
+</div>
+</article>
+<!-- DAY 9 -->
+<article class="day-card flex flex-col bg-apple-card rounded-[18px] p-4 border border-apple-border shadow-sm transition-all" data-leg="swiss">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-apple-fill text-apple-blue flex items-center justify-center text-[14px] font-bold border border-apple-border">9</span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-[17px] text-apple-text font-bold">10.4 금</span>
+<span class="px-2 py-0.5 rounded-full bg-apple-fill text-apple-blue text-[11px] font-semibold border border-apple-border">호수 &amp; 구시가지</span>
+</div>
+<span class="text-[12px] text-apple-subtext">브리엔츠 유람선 or 베른 구시가지 투어</span>
+</div>
+</div>
+<button class="flex items-center gap-0.5 text-apple-blue text-[12px] font-semibold bg-apple-fill hover:bg-apple-fill-secondary border border-apple-border px-3 py-1 rounded-full transition active:scale-95 flex-shrink-0" onclick="openDayDetail(9)">
+<span class="">타임라인</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+<div class="mt-3 flex flex-col gap-2">
+<div class="flex items-center gap-2 text-apple-text text-[14px]">
+<span class="material-symbols-outlined text-[18px] text-apple-blue flex-shrink-0">sailing</span>
+<span class="font-semibold">이젤트발트 사랑의 불시착 피어 산책 · 베른 곰 공원 및 시계탑 투어</span>
+</div>
+</div>
+<div class="mt-3 bg-apple-fill rounded-[14px] p-3 border border-apple-border flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="text-[12px] text-apple-subtext flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[15px] text-apple-blue">sticky_note_2</span>
+            스팟 동행 메모
+          </span>
+<button class="text-apple-blue text-[12px] font-semibold hover:underline flex items-center gap-0.5" onclick="toggleMemoEdit(9)">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span class="" id="memo-btn-text-9">수정</span>
+</button>
+</div>
+<p class="text-[13px] text-apple-text leading-relaxed" id="memo-display-9">
+          맑으면 이젤트발트 유람선 코스 진행, 우천 시 스위스패스로 베른 구시가지 실내 아케이드 쇼핑몰로 플랜B 가동!
+        </p>
+<div class="hidden flex-col gap-2 mt-1" id="memo-editor-9">
+<textarea class="w-full p-2.5 bg-white text-apple-text text-[13px] rounded-[10px] border border-apple-border focus:outline-none focus:ring-2 focus:ring-apple-blue/30 resize-none h-18" id="memo-input-9">맑으면 이젤트발트 유람선 코스 진행, 우천 시 스위스패스로 베른 구시가지 실내 아케이드 쇼핑몰로 플랜B 가동!</textarea>
+<div class="flex justify-end gap-2">
+<button class="px-3 py-1 rounded-full bg-apple-card border border-apple-border text-[12px] text-apple-subtext font-medium" onclick="toggleMemoEdit(9)">취소</button>
+<button class="px-3.5 py-1 rounded-full bg-apple-blue text-white text-[12px] font-semibold" onclick="saveMemo(9)">저장</button>
+</div>
+</div>
+</div>
+</article>
+<!-- DAY 10 -->
+<article class="day-card flex flex-col bg-apple-card rounded-[18px] p-4 border border-apple-border shadow-sm transition-all" data-leg="italy">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-apple-fill text-apple-blue flex items-center justify-center text-[14px] font-bold border border-apple-border">10</span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-[17px] text-apple-text font-bold">10.5 토</span>
+<span class="px-2 py-0.5 rounded-full bg-apple-fill text-apple-blue text-[11px] font-semibold border border-apple-border">이탈리아 이동</span>
+</div>
+<span class="text-[12px] text-apple-subtext">스피츠 ➔ 밀라노 경유 ➔ 피렌체 도착</span>
+</div>
+</div>
+<button class="flex items-center gap-0.5 text-apple-blue text-[12px] font-semibold bg-apple-fill hover:bg-apple-fill-secondary border border-apple-border px-3 py-1 rounded-full transition active:scale-95 flex-shrink-0" onclick="openDayDetail(10)">
+<span class="">타임라인</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+<div class="mt-3 flex flex-col gap-2">
+<div class="flex items-center gap-2 text-apple-text text-[14px]">
+<span class="material-symbols-outlined text-[18px] text-apple-blue flex-shrink-0">train</span>
+<span class="font-semibold">유로스타 트랜이탈리아 탑승 · 피렌체 SMN역 도착 · 미켈란젤로 광장 노을</span>
+</div>
+</div>
+<div class="mt-3 bg-apple-fill rounded-[14px] p-3 border border-apple-border flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="text-[12px] text-apple-subtext flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[15px] text-apple-blue">sticky_note_2</span>
+            스팟 동행 메모
+          </span>
+<button class="text-apple-blue text-[12px] font-semibold hover:underline flex items-center gap-0.5" onclick="toggleMemoEdit(10)">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span class="" id="memo-btn-text-10">수정</span>
+</button>
+</div>
+<p class="text-[13px] text-apple-text leading-relaxed" id="memo-display-10">
+          밀라노 중앙역 환승 시 에스프레소 한 잔. 유레일 좌석 예약증 실물 프린트 챙기고, 내일 두오모 쿠폴라 통합권 교환하기.
+        </p>
+<div class="hidden flex-col gap-2 mt-1" id="memo-editor-10">
+<textarea class="w-full p-2.5 bg-white text-apple-text text-[13px] rounded-[10px] border border-apple-border focus:outline-none focus:ring-2 focus:ring-apple-blue/30 resize-none h-18" id="memo-input-10">밀라노 중앙역 환승 시 에스프레소 한 잔. 유레일 좌석 예약증 실물 프린트 챙기고, 내일 두오모 쿠폴라 통합권 교환하기.</textarea>
+<div class="flex justify-end gap-2">
+<button class="px-3 py-1 rounded-full bg-apple-card border border-apple-border text-[12px] text-apple-subtext font-medium" onclick="toggleMemoEdit(10)">취소</button>
+<button class="px-3.5 py-1 rounded-full bg-apple-blue text-white text-[12px] font-semibold" onclick="saveMemo(10)">저장</button>
+</div>
+</div>
+</div>
+</article>
+<!-- DAY 11 -->
+<article class="day-card flex flex-col bg-apple-card rounded-[18px] p-4 border border-apple-border shadow-sm transition-all" data-leg="italy">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-apple-fill text-apple-blue flex items-center justify-center text-[14px] font-bold border border-apple-border">11</span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-[17px] text-apple-text font-bold">10.6 일</span>
+<span class="px-2 py-0.5 rounded-full bg-apple-fill text-apple-blue text-[11px] font-semibold border border-apple-border">르네상스의 심장</span>
+</div>
+<span class="text-[12px] text-apple-subtext">피렌체 우피치 미술관 &amp; 조토의 종탑</span>
+</div>
+</div>
+<button class="flex items-center gap-0.5 text-apple-blue text-[12px] font-semibold bg-apple-fill hover:bg-apple-fill-secondary border border-apple-border px-3 py-1 rounded-full transition active:scale-95 flex-shrink-0" onclick="openDayDetail(11)">
+<span class="">타임라인</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+<div class="mt-3 flex flex-col gap-2">
+<div class="flex items-center gap-2 text-apple-text text-[14px]">
+<span class="material-symbols-outlined text-[18px] text-apple-blue flex-shrink-0">restaurant</span>
+<span class="font-semibold">우피치 보티첼리 비너스 · 조토의 종탑 계단 정복 · 달오스테 티본스테이크 디너</span>
+</div>
+</div>
+<div class="mt-3 bg-apple-fill rounded-[14px] p-3 border border-apple-border flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="text-[12px] text-apple-subtext flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[15px] text-apple-blue">sticky_note_2</span>
+            스팟 동행 메모
+          </span>
+<button class="text-apple-blue text-[12px] font-semibold hover:underline flex items-center gap-0.5" onclick="toggleMemoEdit(11)">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span class="" id="memo-btn-text-11">수정</span>
+</button>
+</div>
+<p class="text-[13px] text-apple-text leading-relaxed" id="memo-display-11">
+          달오스테(Dall'Oste) 저녁 7시 예약 확정됨. 종탑 414개 계단 오르니 편한 운동화 착용할 것!
+        </p>
+<div class="hidden flex-col gap-2 mt-1" id="memo-editor-11">
+<textarea class="w-full p-2.5 bg-white text-apple-text text-[13px] rounded-[10px] border border-apple-border focus:outline-none focus:ring-2 focus:ring-apple-blue/30 resize-none h-18" id="memo-input-11">달오스테(Dall'Oste) 저녁 7시 예약 확정됨. 종탑 414개 계단 오르니 편한 운동화 착용할 것!</textarea>
+<div class="flex justify-end gap-2">
+<button class="px-3 py-1 rounded-full bg-apple-card border border-apple-border text-[12px] text-apple-subtext font-medium" onclick="toggleMemoEdit(11)">취소</button>
+<button class="px-3.5 py-1 rounded-full bg-apple-blue text-white text-[12px] font-semibold" onclick="saveMemo(11)">저장</button>
+</div>
+</div>
+</div>
+</article>
+<!-- DAY 12 -->
+<article class="day-card flex flex-col bg-apple-card rounded-[18px] p-4 border border-apple-border shadow-sm transition-all" data-leg="italy">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-apple-fill text-apple-blue flex items-center justify-center text-[14px] font-bold border border-apple-border">12</span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-[17px] text-apple-text font-bold">10.7 월</span>
+<span class="px-2 py-0.5 rounded-full bg-apple-fill text-apple-blue text-[11px] font-semibold border border-apple-border">영원의 도시</span>
+</div>
+<span class="text-[12px] text-apple-subtext">피렌체 ➔ 로마 이동 &amp; 콜로세움 야경</span>
+</div>
+</div>
+<button class="flex items-center gap-0.5 text-apple-blue text-[12px] font-semibold bg-apple-fill hover:bg-apple-fill-secondary border border-apple-border px-3 py-1 rounded-full transition active:scale-95 flex-shrink-0" onclick="openDayDetail(12)">
+<span class="">타임라인</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+<div class="mt-3 flex flex-col gap-2">
+<div class="flex items-center gap-2 text-apple-text text-[14px]">
+<span class="material-symbols-outlined text-[18px] text-apple-blue flex-shrink-0">account_balance</span>
+<span class="font-semibold">이탈로 1시간 30분 이동 · 트레비 분수 동전 던지기 · 지올리띠 젤라또 투어</span>
+</div>
+</div>
+<div class="mt-3 bg-apple-fill rounded-[14px] p-3 border border-apple-border flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="text-[12px] text-apple-subtext flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[15px] text-apple-blue">sticky_note_2</span>
+            스팟 동행 메모
+          </span>
+<button class="text-apple-blue text-[12px] font-semibold hover:underline flex items-center gap-0.5" onclick="toggleMemoEdit(12)">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span class="" id="memo-btn-text-12">수정</span>
+</button>
+</div>
+<p class="text-[13px] text-apple-text leading-relaxed" id="memo-display-12">
+          테르미니(Termini)역 소매치기 각별히 주의! 가방 앞으로 메고 콜로세움 외벽 라이트업 8시 전 방문하기.
+        </p>
+<div class="hidden flex-col gap-2 mt-1" id="memo-editor-12">
+<textarea class="w-full p-2.5 bg-white text-apple-text text-[13px] rounded-[10px] border border-apple-border focus:outline-none focus:ring-2 focus:ring-apple-blue/30 resize-none h-18" id="memo-input-12">테르미니(Termini)역 소매치기 각별히 주의! 가방 앞으로 메고 콜로세움 외벽 라이트업 8시 전 방문하기.</textarea>
+<div class="flex justify-end gap-2">
+<button class="px-3 py-1 rounded-full bg-apple-card border border-apple-border text-[12px] text-apple-subtext font-medium" onclick="toggleMemoEdit(12)">취소</button>
+<button class="px-3.5 py-1 rounded-full bg-apple-blue text-white text-[12px] font-semibold" onclick="saveMemo(12)">저장</button>
+</div>
+</div>
+</div>
+</article>
+<!-- DAY 13 -->
+<article class="day-card flex flex-col bg-apple-card rounded-[18px] p-4 border border-apple-border shadow-sm transition-all" data-leg="italy">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-apple-fill text-apple-blue flex items-center justify-center text-[14px] font-bold border border-apple-border">13</span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-[17px] text-apple-text font-bold">10.8 화</span>
+<span class="px-2 py-0.5 rounded-full bg-apple-fill text-apple-blue text-[11px] font-semibold border border-apple-border">바티칸 데이</span>
+</div>
+<span class="text-[12px] text-apple-subtext">바티칸 반일 투어 &amp; 성 베드로 광장</span>
+</div>
+</div>
+<button class="flex items-center gap-0.5 text-apple-blue text-[12px] font-semibold bg-apple-fill hover:bg-apple-fill-secondary border border-apple-border px-3 py-1 rounded-full transition active:scale-95 flex-shrink-0" onclick="openDayDetail(13)">
+<span class="">타임라인</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+<div class="mt-3 flex flex-col gap-2">
+<div class="flex items-center gap-2 text-apple-text text-[14px]">
+<span class="material-symbols-outlined text-[18px] text-apple-blue flex-shrink-0">church</span>
+<span class="font-semibold">바티칸 박물관 · 시스티나 성당 천장화 (천지창조) · 성 베드로 대성당 쿠폴라</span>
+</div>
+</div>
+<div class="mt-3 bg-apple-fill rounded-[14px] p-3 border border-apple-border flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="text-[12px] text-apple-subtext flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[15px] text-apple-blue">sticky_note_2</span>
+            스팟 동행 메모
+          </span>
+<button class="text-apple-blue text-[12px] font-semibold hover:underline flex items-center gap-0.5" onclick="toggleMemoEdit(13)">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span class="" id="memo-btn-text-13">수정</span>
+</button>
+</div>
+<p class="text-[13px] text-apple-text leading-relaxed" id="memo-display-13">
+          성당 입장 시 민소매 및 무릎 위 반바지 엄격히 금지되니 린넨 셔츠/스카프 준비할 것. 가이드 투어 미팅 08:20 오타비아노역.
+        </p>
+<div class="hidden flex-col gap-2 mt-1" id="memo-editor-13">
+<textarea class="w-full p-2.5 bg-white text-apple-text text-[13px] rounded-[10px] border border-apple-border focus:outline-none focus:ring-2 focus:ring-apple-blue/30 resize-none h-18" id="memo-input-13">성당 입장 시 민소매 및 무릎 위 반바지 엄격히 금지되니 린넨 셔츠/스카프 준비할 것. 가이드 투어 미팅 08:20 오타비아노역.</textarea>
+<div class="flex justify-end gap-2">
+<button class="px-3 py-1 rounded-full bg-apple-card border border-apple-border text-[12px] text-apple-subtext font-medium" onclick="toggleMemoEdit(13)">취소</button>
+<button class="px-3.5 py-1 rounded-full bg-apple-blue text-white text-[12px] font-semibold" onclick="saveMemo(13)">저장</button>
+</div>
+</div>
+</div>
+</article>
+<!-- DAY 14 -->
+<article class="day-card flex flex-col bg-apple-card rounded-[18px] p-4 border border-apple-border shadow-sm transition-all" data-leg="italy">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-full bg-apple-blue text-white flex items-center justify-center text-[14px] font-bold">14</span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-[17px] text-apple-text font-bold">10.9 수</span>
+<span class="px-2 py-0.5 rounded-full bg-apple-fill text-apple-blue text-[11px] font-semibold border border-apple-border">귀국일</span>
+</div>
+<span class="text-[12px] text-apple-subtext">로마 피우미치노 공항(FCO) ➔ 인천 귀국</span>
+</div>
+</div>
+<button class="flex items-center gap-0.5 text-apple-blue text-[12px] font-semibold bg-apple-fill hover:bg-apple-fill-secondary border border-apple-border px-3 py-1 rounded-full transition active:scale-95 flex-shrink-0" onclick="openDayDetail(14)">
+<span class="">타임라인</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+<div class="mt-3 flex flex-col gap-2">
+<div class="flex items-center gap-2 text-apple-text text-[14px]">
+<span class="material-symbols-outlined text-[18px] text-apple-blue flex-shrink-0">flight_takeoff</span>
+<span class="font-semibold">레오나르도 익스프레스 공항철도 · FCO 공항 글로벌블루 택스리펀 · 귀국편 탑승</span>
+</div>
+</div>
+<div class="mt-3 bg-apple-fill rounded-[14px] p-3 border border-apple-border flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="text-[12px] text-apple-subtext flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[15px] text-apple-blue">sticky_note_2</span>
+            스팟 동행 메모
+          </span>
+<button class="text-apple-blue text-[12px] font-semibold hover:underline flex items-center gap-0.5" onclick="toggleMemoEdit(14)">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span class="" id="memo-btn-text-14">수정</span>
+</button>
+</div>
+<p class="text-[13px] text-apple-text leading-relaxed" id="memo-display-14">
+          공항 택스리펀 창구 대기 줄이 길 수 있으니 비행기 출발 최소 3시간 30분 전 도착! 영수증 실물과 미개봉 상품 필수.
+        </p>
+<div class="hidden flex-col gap-2 mt-1" id="memo-editor-14">
+<textarea class="w-full p-2.5 bg-white text-apple-text text-[13px] rounded-[10px] border border-apple-border focus:outline-none focus:ring-2 focus:ring-apple-blue/30 resize-none h-18" id="memo-input-14">공항 택스리펀 창구 대기 줄이 길 수 있으니 비행기 출발 최소 3시간 30분 전 도착! 영수증 실물과 미개봉 상품 필수.</textarea>
+<div class="flex justify-end gap-2">
+<button class="px-3 py-1 rounded-full bg-apple-card border border-apple-border text-[12px] text-apple-subtext font-medium" onclick="toggleMemoEdit(14)">취소</button>
+<button class="px-3.5 py-1 rounded-full bg-apple-blue text-white text-[12px] font-semibold" onclick="saveMemo(14)">저장</button>
+</div>
+</div>
+</div>
+</article>
+</section>
+<!-- Apple Standard 44px Bottom Floating Action Deck -->
+<div class="sticky bottom-20 z-30 px-margin flex items-center gap-2">
+<button class="flex-1 h-11 rounded-full bg-apple-blue text-white text-[15px] font-semibold flex items-center justify-center gap-1.5 shadow-[0_4px_14px_rgba(0,113,227,0.35)] active:scale-[0.98] transition hover:bg-apple-blue-hover" onclick="openNewScheduleSheet()">
+<span class="material-symbols-outlined text-[19px]">add</span>
+<span class="">새 일정/메모 추가</span>
+</button>
+<button class="h-11 px-4 rounded-full bg-apple-card text-apple-text text-[15px] font-semibold flex items-center justify-center gap-1.5 border border-apple-border shadow-sm active:scale-[0.98] transition hover:bg-apple-fill" onclick="openDayDetail(1)">
+<span class="material-symbols-outlined text-[18px] text-apple-blue">calendar_month</span>
+<span class="">일별 상세</span>
+</button>
+</div>
+<!-- New Schedule / Spot Modal Sheet -->
+<div class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden flex-col justify-end" id="new-schedule-sheet">
+<div class="bg-apple-card rounded-t-[24px] p-5 flex flex-col gap-3.5 max-h-[85vh] overflow-y-auto border-t border-apple-border shadow-2xl">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-apple-blue text-[24px]">edit_calendar</span>
+<h2 class="text-[18px] text-apple-text font-bold tracking-tight">일정 및 스팟 메모 추가</h2>
+</div>
+<button class="w-8 h-8 rounded-full bg-apple-fill flex items-center justify-center text-apple-subtext hover:text-apple-text" onclick="closeNewScheduleSheet()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-[12px] text-apple-subtext font-semibold">해당 날짜 선택</label>
+<select class="w-full p-2.5 bg-apple-fill text-apple-text text-[14px] rounded-[12px] border border-apple-border focus:outline-none focus:ring-2 focus:ring-apple-blue/30" id="new-day-select">
+<option value="1">Day 1 (9.26 목) - 파리 도착</option>
+<option value="2">Day 2 (9.27 금) - 파리 도심 탐방</option>
+<option value="3">Day 3 (9.28 토) - 몽마르트르</option>
+<option value="4">Day 4 (9.29 일) - 베르사유 궁전</option>
+<option value="5">Day 5 (9.30 월) - 센강 바토무슈</option>
+<option value="6">Day 6 (10.1 화) - 스위스 인터라켄 이동</option>
+<option value="7">Day 7 (10.2 수) - 융프라우요흐</option>
+<option value="8">Day 8 (10.3 목) - 피르스트 액티비티</option>
+<option value="9">Day 9 (10.4 금) - 브리엔츠 &amp; 베른</option>
+<option value="10">Day 10 (10.5 토) - 피렌체 이동</option>
+<option value="11">Day 11 (10.6 일) - 우피치 &amp; 티본스테이크</option>
+<option value="12">Day 12 (10.7 월) - 로마 콜로세움</option>
+<option value="13">Day 13 (10.8 화) - 바티칸 투어</option>
+<option value="14">Day 14 (10.9 수) - 로마 FCO 귀국</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-[12px] text-apple-subtext font-semibold">스팟 명 또는 활동</label>
+<input class="w-full p-2.5 bg-apple-fill text-apple-text text-[14px] rounded-[12px] border border-apple-border focus:outline-none focus:ring-2 focus:ring-apple-blue/30" id="new-spot-title" placeholder="예: 튈르리 정원 안젤리나 쇼콜라쇼 테이크아웃" type="text">
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-[12px] text-apple-subtext font-semibold">동행 공유 메모</label>
+<textarea class="w-full p-2.5 bg-apple-fill text-apple-text text-[14px] rounded-[12px] border border-apple-border focus:outline-none focus:ring-2 focus:ring-apple-blue/30 resize-none h-24" id="new-spot-memo" placeholder="예: 오픈 시간 10시, 대기 길어질 수 있으니 15분 전 도착하기!"></textarea>
+</div>
+<div class="pt-2 flex items-center gap-2">
+<button class="flex-1 h-11 rounded-full bg-apple-fill text-apple-text text-[14px] font-medium border border-apple-border" onclick="closeNewScheduleSheet()">
+          닫기
+        </button>
+<button class="flex-1 h-11 rounded-full bg-apple-blue text-white text-[14px] font-semibold shadow-sm hover:bg-apple-blue-hover" onclick="submitNewSpotMemo()">
+          일정에 등록하기
+        </button>
+</div>
+</div>
+</div>
+<!-- Interactive JavaScript Logic -->
+<script>
+    // Toast Notification helper
+    function showToast(message) {
+      const toast = document.getElementById('toast-message');
+      const toastText = document.getElementById('toast-text');
+      if (!toast || !toastText) return;
+      toastText.textContent = message;
+      toast.classList.remove('opacity-0', 'scale-90', 'pointer-events-none');
+      toast.classList.add('opacity-100', 'scale-100');
+      setTimeout(() => {
+        toast.classList.remove('opacity-100', 'scale-100');
+        toast.classList.add('opacity-0', 'scale-90', 'pointer-events-none');
+      }, 2500);
+    }
+
+    // Toggle Global Map modal view
+    function toggleGlobalMapModal() {
+      const modal = document.getElementById('map-modal-card');
+      if (modal) {
+        modal.classList.toggle('hidden');
+        if (!modal.classList.contains('hidden')) {
+          modal.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
+    }
+
+    // Share action feedback
+    function triggerShareSheet() {
+      if (navigator.share) {
+        navigator.share({
+          title: '유럽 14일 전체 일정표 (파리-스위스-이탈리아)',
+          text: '민지, 준호, 수현이와 함께하는 유럽 14일 여행 마스터 일정표를 확인하세요!',
+          url: window.location.href,
+        }).catch(() => {
+          showToast('공유 링크가 클립보드에 복사되었습니다');
+        });
+      } else {
+        showToast('일정 공유 링크가 복사되었습니다 ✨');
+      }
+    }
+
+    // Filter cards by travel country legs
+    function filterDays(leg) {
+      const cards = document.querySelectorAll('.day-card');
+      const tabs = document.querySelectorAll('.filter-tab');
+
+      // Update Tab Styles
+      tabs.forEach(tab => {
+        tab.classList.remove('bg-apple-blue', 'text-white', 'shadow-sm');
+        tab.classList.add('bg-apple-card', 'text-apple-text', 'border', 'border-apple-border');
+      });
+      const activeTab = document.getElementById(`tab-${leg}`);
+      if (activeTab) {
+        activeTab.classList.remove('bg-apple-card', 'text-apple-text', 'border', 'border-apple-border');
+        activeTab.classList.add('bg-apple-blue', 'text-white', 'shadow-sm');
+      }
+
+      // Filter Cards
+      cards.forEach(card => {
+        if (leg === 'all' || card.getAttribute('data-leg') === leg) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Open detail timeline for a specific day
+    function openDayDetail(dayNum) {
+      showToast(`Day ${dayNum} 타임라인 상세 스케줄로 이동합니다`);
+      setTimeout(() => {
+        const scheduleNav = document.querySelector('nav a[data-path="schedule"]');
+        if (scheduleNav) {
+          scheduleNav.click();
+        }
+      }, 500);
+    }
+
+    // Inline Spot Memo Edit & Save
+    function toggleMemoEdit(dayNum) {
+      const editor = document.getElementById(`memo-editor-${dayNum}`);
+      const display = document.getElementById(`memo-display-${dayNum}`);
+      const btnText = document.getElementById(`memo-btn-text-${dayNum}`);
+      if (!editor || !display) return;
+
+      const isHidden = editor.classList.contains('hidden');
+      if (isHidden) {
+        editor.classList.remove('hidden');
+        display.classList.add('hidden');
+        if (btnText) btnText.textContent = '닫기';
+      } else {
+        editor.classList.add('hidden');
+        display.classList.remove('hidden');
+        if (btnText) btnText.textContent = '수정';
+      }
+    }
+
+    function saveMemo(dayNum) {
+      const input = document.getElementById(`memo-input-${dayNum}`);
+      const display = document.getElementById(`memo-display-${dayNum}`);
+      if (!input || !display) return;
+
+      const newText = input.value.trim();
+      if (newText.length > 0) {
+        display.textContent = newText;
+        toggleMemoEdit(dayNum);
+        showToast(`Day ${dayNum} 메모가 실시간 동기화되었습니다 ✍️`);
+      } else {
+        showToast('메모 내용을 1자 이상 입력해주세요');
+      }
+    }
+
+    // New schedule/spot bottom sheet
+    function openNewScheduleSheet() {
+      const sheet = document.getElementById('new-schedule-sheet');
+      if (sheet) {
+        sheet.classList.remove('hidden');
+        sheet.classList.add('flex');
+      }
+    }
+
+    function closeNewScheduleSheet() {
+      const sheet = document.getElementById('new-schedule-sheet');
+      if (sheet) {
+        sheet.classList.add('hidden');
+        sheet.classList.remove('flex');
+      }
+    }
+
+    function submitNewSpotMemo() {
+      const daySelect = document.getElementById('new-day-select');
+      const spotTitle = document.getElementById('new-spot-title');
+      const spotMemo = document.getElementById('new-spot-memo');
+
+      if (!spotTitle || !spotTitle.value.trim()) {
+        showToast('스팟 또는 활동 명을 입력해주세요');
+        return;
+      }
+
+      const dayVal = daySelect ? daySelect.value : '1';
+      const targetDisplay = document.getElementById(`memo-display-${dayVal}`);
+      const targetInput = document.getElementById(`memo-input-${dayVal}`);
+
+      if (targetDisplay && spotMemo && spotMemo.value.trim()) {
+        const combined = targetDisplay.textContent.trim() + " | [추가] " + spotTitle.value.trim() + ": " + spotMemo.value.trim();
+        targetDisplay.textContent = combined;
+        if (targetInput) targetInput.value = combined;
+      }
+
+      closeNewScheduleSheet();
+      showToast(`Day ${dayVal}에 새 스팟 메모가 추가되었습니다!`);
+
+      const targetCard = document.querySelector(`.day-card:nth-child(${dayVal})`);
+      if (targetCard) {
+        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      if (spotTitle) spotTitle.value = '';
+      if (spotMemo) spotMemo.value = '';
+    }
+  </script>
+</div></main><!-- Apple Tab Bar Style Navigation --><nav class="fixed bottom-0 w-full z-50 pb-safe pointer-events-none"><div class="px-margin pb-2 pt-1"><div class="pointer-events-auto bg-apple-card/85 backdrop-blur-2xl rounded-full border border-apple-border shadow-[0_8px_24px_rgba(0,0,0,0.06)] flex items-center justify-around h-14 px-1.5"><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] flex-1 text-apple-subtext transition-colors hover:text-apple-text active:scale-95" data-path="schedule" href="#"><span class="material-symbols-outlined text-[20px]">calendar_today</span><span class="text-[10px] font-medium mt-0.5">일정</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] flex-1 text-apple-blue font-semibold transition active:scale-95" data-path="add-spot" href="#"><div class="w-7 h-7 rounded-full bg-apple-blue text-white flex items-center justify-center shadow-[0_2px_8px_rgba(0,113,227,0.35)] -mt-1"><span class="material-symbols-outlined text-[17px]">add_location_alt</span></div><span class="text-[10px] mt-0.5">장소 추가</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] flex-1 text-apple-subtext transition-colors hover:text-apple-text active:scale-95" data-path="food-and-places" href="#"><span class="material-symbols-outlined text-[20px]">restaurant</span><span class="text-[10px] font-medium mt-0.5">맛집·스팟</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] flex-1 text-apple-subtext transition-colors hover:text-apple-text active:scale-95" data-path="shared-notes" href="#"><span class="material-symbols-outlined text-[20px]">checklist</span><span class="text-[10px] font-medium mt-0.5">공유 메모</span></a></div></div></nav>
+<!-- ================= [실시간 동기화 엔진 시작] ================= -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getFirestore, doc, onSnapshot, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+  // 1. 발급받은 Firebase 설정값을 여기에 붙여넣으세요.
+  const firebaseConfig = {
+    apiKey: "여기에_API_KEY_입력",
+    authDomain: "여기에_PROJECT_ID.firebaseapp.com",
+    projectId: "여기에_PROJECT_ID",
+    storageBucket: "여기에_PROJECT_ID.appspot.com",
+    messagingSenderId: "여기에_SENDER_ID",
+    appId: "여기에_APP_ID"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const docRef = doc(db, "stitchAppData", "apple_style_1_state");
+
+  // 디바운스 타이머 (타이핑 시 너무 잦은 요청 방지)
+  let debounceTimer = null;
+
+  // 2. 현재 화면의 모든 입력 상태(텍스트, 체크박스 등)를 수집하는 함수
+  function collectScreenState() {
+    const state = {};
+    const inputs = document.querySelectorAll("input, textarea, select");
+    inputs.forEach((el, index) => {
+      const key = el.id || el.name || `field_${index}`;
+      if (el.type === "checkbox" || el.type === "radio") {
+        state[key] = el.checked;
+      } else {
+        state[key] = el.value;
+      }
+    });
+    return state;
+  }
+
+  // 3. 서버에 상태 저장 (내 폰에서 변경 시 실행)
+  async function syncToServer() {
+    const currentState = collectScreenState();
+    try {
+      await setDoc(docRef, {
+        fields: currentState,
+        updatedAt: new Date().toISOString()
+      }, { merge: true });
+    } catch (err) {
+      console.error("데이터 동기화 실패:", err);
+    }
+  }
+
+  // 화면 내 사용자의 모든 입력/클릭 이벤트 감지
+  document.addEventListener("input", (e) => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(syncToServer, 300);
+  });
+
+  document.addEventListener("change", (e) => {
+    syncToServer();
+  });
+
+  // 4. 실시간 수신 (다른 사람이 변경하면 내 화면에 즉시 반영)
+  onSnapshot(docRef, (snapshot) => {
+    if (!snapshot.exists()) return;
+    const remoteData = snapshot.data().fields || {};
+
+    const inputs = document.querySelectorAll("input, textarea, select");
+    inputs.forEach((el, index) => {
+      const key = el.id || el.name || `field_${index}`;
+      if (remoteData[key] === undefined) return;
+
+      // 현재 내가 직접 입력 중인 필드는 덮어쓰지 않음 (타이핑 커서 튀는 현상 방지)
+      if (document.activeElement === el) return;
+
+      if (el.type === "checkbox" || el.type === "radio") {
+        el.checked = remoteData[key];
+      } else {
+        el.value = remoteData[key];
+      }
+    });
+  });
+</script>
+<!-- ================= [실시간 동기화 엔진 끝] ================= -->
+</body></html>
